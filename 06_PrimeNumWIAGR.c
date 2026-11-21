@@ -1,0 +1,29 @@
+//Write a program in C to print the prime numbers within a given range.
+#include <stdio.h>
+int main()
+{
+    int start, end, i, j, flag;
+    printf("Enter the starting number: ");
+    scanf("%d", &start);
+    printf("Enter the ending number: ");
+    scanf("%d", &end);
+    printf("Prime numbers between %d and %d are:\n", start, end);
+    for (i = start; i <= end; i++)
+    {
+        if (i < 2)
+            continue;       /* 0 and 1 are not prime */
+        flag = 1;
+        for (j = 2; j <= i / 2; j++)
+        {
+            if (i % j == 0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag == 1)
+            printf("%d ", i);
+    }
+    printf("\n");
+    return 0;
+}
